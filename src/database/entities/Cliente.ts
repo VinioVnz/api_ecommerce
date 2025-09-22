@@ -1,19 +1,22 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('cliente')
+@Entity('Cliente')
 export class Cliente{
     @PrimaryGeneratedColumn()
     id!: number;
 
-    @Column()
+    @Column({type: "varchar", length: 50})
     nome!: string;
 
-    @Column()
+    @Column({type: "varchar", length: 120, unique: true})
     email!: string;
 
-    @Column()
+    @Column({type: "varchar", length:11, unique: true})
+    cpf!: string;
+
+    @Column({type: "varchar", length:50, unique:true})
     senha!: string;
 
-    @Column()
+    @Column({type: "varchar", length:13})
     telefone!: string;
 }

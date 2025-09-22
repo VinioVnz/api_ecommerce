@@ -1,6 +1,9 @@
 import { DataSource } from "typeorm";
+import "reflect-metadata"
 import { Cliente } from "./entities/Cliente";
 
+import * as dotenv from "dotenv";
+dotenv.config();
 export const AppDataSource = new DataSource({
     type: 'mysql',
     host: process.env.DB_HOST,
@@ -10,5 +13,5 @@ export const AppDataSource = new DataSource({
     database: process.env.DB_NAME,
     entities:[Cliente],
     migrations: ['dist/database/migrations/*.js'],
-    synchronize: Boolean(process.env.DB_SYNC)
+    synchronize: false
 })
