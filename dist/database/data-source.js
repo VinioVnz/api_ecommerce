@@ -40,7 +40,7 @@ const Cliente_1 = require("./entities/Cliente");
 const dotenv = __importStar(require("dotenv"));
 dotenv.config();
 exports.AppDataSource = new typeorm_1.DataSource({
-    type: 'mysql',
+    type: "mysql",
     host: process.env.DB_HOST || 'localhost',
     port: Number(process.env.DB_PORT || 3306),
     username: process.env.DB_USER || 'root',

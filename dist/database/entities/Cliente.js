@@ -39,5 +39,5 @@ __decorate([
     __metadata("design:type", String)
 ], Cliente.prototype, "telefone", void 0);
 exports.Cliente = Cliente = __decorate([
-    (0, typeorm_1.Entity)('Cliente')
+    (0, typeorm_1.Entity)('cliente')
 ], Cliente);
