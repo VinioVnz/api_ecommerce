@@ -14,7 +14,7 @@ export class Cliente{
     @Column({type: "varchar", length:11, unique: true})
     cpf!: string;
 
-    @Column({type: "varchar", length:50, unique:true})
+    @Column({type: "varchar", length:50})
     senha!: string;
 
     @Column({type: "varchar", length:13})
