@@ -61,7 +61,7 @@ exports.ClienteController = {
             if (!cliente) {
                 res.status(404).json({ error: notFound });
             }
-            res.status(200).json(cliente);
+            res.status(200).json('Alterado com sucesso!');
         }
         catch (e) {
             console.log(e);

@@ -4,4 +4,8 @@ const express_1 = require("express");
 const ClienteController_1 = require("../controllers/ClienteController");
 const routes = (0, express_1.Router)();
 routes.get('/', ClienteController_1.ClienteController.listar);
+routes.get('/:id', ClienteController_1.ClienteController.buscar);
+routes.delete('/:id', ClienteController_1.ClienteController.deletar);
+routes.post('/', ClienteController_1.ClienteController.criar);
+routes.put('/:id', ClienteController_1.ClienteController.atualizar);
 exports.default = routes;

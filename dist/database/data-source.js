@@ -38,6 +38,7 @@ const typeorm_1 = require("typeorm");
 require("reflect-metadata");
 const Cliente_1 = require("./entities/Cliente");
 const dotenv = __importStar(require("dotenv"));
+const Endereco_1 = require("./entities/Endereco");
 dotenv.config();
 exports.AppDataSource = new typeorm_1.DataSource({
     type: "mysql",
@@ -46,7 +47,7 @@ exports.AppDataSource = new typeorm_1.DataSource({
     username: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',
     database: process.env.DB_NAME || 'ecommerce_api',
-    entities: [Cliente_1.Cliente],
+    entities: [Cliente_1.Cliente, Endereco_1.Endereco],
     logging: true,
     migrations: ['dist/database/migrations/*.js'],
     synchronize: false
