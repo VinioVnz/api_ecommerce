@@ -39,6 +39,8 @@ require("reflect-metadata");
 const Cliente_1 = require("./entities/Cliente");
 const dotenv = __importStar(require("dotenv"));
 const Endereco_1 = require("./entities/Endereco");
+const Produto_1 = require("./entities/Produto");
+const Categoria_1 = require("./entities/Categoria");
 dotenv.config();
 exports.AppDataSource = new typeorm_1.DataSource({
     type: "mysql",
@@ -47,7 +49,7 @@ exports.AppDataSource = new typeorm_1.DataSource({
     username: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',
     database: process.env.DB_NAME || 'ecommerce_api',
-    entities: [Cliente_1.Cliente, Endereco_1.Endereco],
+    entities: [Cliente_1.Cliente, Endereco_1.Endereco, Produto_1.Produto, Categoria_1.Categoria],
     logging: true,
     migrations: ['dist/database/migrations/*.js'],
     synchronize: false

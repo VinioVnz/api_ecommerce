@@ -22,6 +22,6 @@ export class Endereco {
     numero!: number
 
     @ManyToOne(() => Cliente, (cliente) => cliente.enderecos)
-    @JoinColumn({ name: "cliente_id" })
+    @JoinColumn({ name: "id_cliente" })
     cliente!: Cliente;
 }

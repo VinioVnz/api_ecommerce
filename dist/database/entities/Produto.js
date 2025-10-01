@@ -9,41 +9,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Endereco = void 0;
+exports.Produto = void 0;
 const typeorm_1 = require("typeorm");
-const Cliente_1 = require("./Cliente");
-let Endereco = class Endereco {
+const Categoria_1 = require("./Categoria");
+let Produto = class Produto {
 };
-exports.Endereco = Endereco;
+exports.Produto = Produto;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], Endereco.prototype, "id", void 0);
+], Produto.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: "varchar" }),
     __metadata("design:type", String)
-], Endereco.prototype, "municipio", void 0);
+], Produto.prototype, "nome", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: "char", length: 2 }),
-    __metadata("design:type", String)
-], Endereco.prototype, "uf", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ type: "varchar" }),
-    __metadata("design:type", String)
-], Endereco.prototype, "logradouro", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ type: "varchar", length: 11 }),
-    __metadata("design:type", String)
-], Endereco.prototype, "cep", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ type: "int" }),
+    (0, typeorm_1.Column)({ type: "decimal", precision: 7, scale: 2 }),
     __metadata("design:type", Number)
-], Endereco.prototype, "numero", void 0);
+], Produto.prototype, "preco", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => Cliente_1.Cliente, (cliente) => cliente.enderecos),
-    (0, typeorm_1.JoinColumn)({ name: "id_cliente" }),
-    __metadata("design:type", Cliente_1.Cliente)
-], Endereco.prototype, "cliente", void 0);
-exports.Endereco = Endereco = __decorate([
-    (0, typeorm_1.Entity)('endereco')
-], Endereco);
+    (0, typeorm_1.Column)({ type: "varchar" }),
+    __metadata("design:type", String)
+], Produto.prototype, "descricao", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'int' }),
+    __metadata("design:type", Number)
+], Produto.prototype, "estoque", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: "varchar" }),
+    __metadata("design:type", String)
+], Produto.prototype, "url_foto", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => Categoria_1.Categoria, (categoria) => categoria.produtos),
+    (0, typeorm_1.JoinColumn)({ name: "id_categoria" }),
+    __metadata("design:type", Categoria_1.Categoria)
+], Produto.prototype, "categoria", void 0);
+exports.Produto = Produto = __decorate([
+    (0, typeorm_1.Entity)('produto')
+], Produto);

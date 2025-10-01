@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const EnderecoController_1 = require("../controllers/EnderecoController");
+const routes = (0, express_1.Router)();
+routes.get('/', EnderecoController_1.EnderecoController.listar);
+routes.get('/:id', EnderecoController_1.EnderecoController.buscar);
+routes.post('/', EnderecoController_1.EnderecoController.criar);
+routes.delete('/:id', EnderecoController_1.EnderecoController.deletar);
+routes.put('/:id', EnderecoController_1.EnderecoController.atualizar);
+exports.default = routes;
