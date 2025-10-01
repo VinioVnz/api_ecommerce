@@ -1,5 +1,6 @@
 import { AppDataSource } from "../database/data-source"
 import { Cliente } from "../database/entities/Cliente";
+import { Endereco } from "../database/entities/Endereco";
 const bcript = require('bcrypt')
 const saltRounds = 10
 
@@ -14,7 +15,8 @@ const repo = AppDataSource.getRepository(Cliente);
 export const ClienteService = {
     async getAll(): Promise<ClienteRetorno[]> {
         return repo.find({
-            select: ['id', 'nome', 'email', 'cpf', 'telefone']
+            select: ['id', 'nome', 'email', 'cpf', 'telefone'],
+            relations: ['enderecos']
         });
 
     },
@@ -22,7 +24,8 @@ export const ClienteService = {
     async getOne(id: number): Promise<ClienteRetorno | null> {
         return repo.findOne({
             where: { id },
-            select: ['id', 'nome', 'email', 'cpf', 'telefone']
+            select: ['id', 'nome', 'email', 'cpf', 'telefone'],
+            relations: ['enderecos']
         })
     },
 
@@ -53,6 +56,7 @@ export const ClienteService = {
             cpf: cliente.cpf,
             telefone: cliente.telefone
         };
+
     },
 
     async delete(id: number): Promise<ClienteRetorno | null> {

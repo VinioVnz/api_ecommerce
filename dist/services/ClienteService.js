@@ -9,13 +9,15 @@ const repo = data_source_1.AppDataSource.getRepository(Cliente_1.Cliente);
 exports.ClienteService = {
     async getAll() {
         return repo.find({
-            select: ['id', 'nome', 'email', 'cpf', 'telefone']
+            select: ['id', 'nome', 'email', 'cpf', 'telefone'],
+            relations: ['enderecos']
         });
     },
     async getOne(id) {
         return repo.findOne({
             where: { id },
-            select: ['id', 'nome', 'email', 'cpf', 'telefone']
+            select: ['id', 'nome', 'email', 'cpf', 'telefone'],
+            relations: ['enderecos']
         });
     },
     async create(data) {

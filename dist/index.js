@@ -7,6 +7,8 @@ const express_1 = __importDefault(require("express"));
 require("reflect-metadata");
 const cliente_routes_1 = __importDefault(require("../src/routes/cliente.routes"));
 const endereco_routes_1 = __importDefault(require("../src/routes/endereco.routes"));
+const endereco_routes_2 = __importDefault(require("../src/routes/endereco.routes"));
+const produto_routes_1 = __importDefault(require("../src/routes/produto.routes"));
 require('dotenv').config();
 const data_source_1 = require("./database/data-source");
 data_source_1.AppDataSource.initialize().then(async () => {
@@ -14,6 +16,8 @@ data_source_1.AppDataSource.initialize().then(async () => {
     app.use(express_1.default.json());
     app.use('/clientes', cliente_routes_1.default);
     app.use('/enderecos', endereco_routes_1.default);
+    app.use('/categorias', endereco_routes_2.default);
+    app.use('/produtos', produto_routes_1.default);
     app.listen(process.env.PORT, () => {
         console.log('Servidor rodando na porta: ', process.env.PORT);
     });

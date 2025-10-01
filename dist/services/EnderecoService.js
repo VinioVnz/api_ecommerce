@@ -42,6 +42,6 @@ exports.EnderecoService = {
         if (!endereco) {
             return null;
         }
-        return repo.save(endereco);
+        return await repo.save(endereco);
     }
 };

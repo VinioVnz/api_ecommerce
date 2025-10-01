@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import { ClienteService } from "../services/ClienteService";
 import { EnderecoService } from "../services/EnderecoService";
 
-const notFound = 'Cliente não encontrado';
+const notFound = 'Endereco não encontrado';
 const serverError = 'Erro de servidor';
 
 export const EnderecoController = {

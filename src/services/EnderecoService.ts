@@ -8,13 +8,13 @@ const clienteRepo = AppDataSource.getRepository(Cliente)
 
 export const EnderecoService = {
     async getAll(): Promise<Endereco[]> {
-        return repo.find({
+        return await repo.find({
             relations: ["cliente"]
         })
     },
 
     async getOne(id: number): Promise<Endereco | null> {
-        return repo.findOne({ where: { id } });
+        return await repo.findOne({ where: { id } });
     },
 
     async create(data: Partial<Endereco> & { cliente_id?: number }): Promise<Endereco | null> {
@@ -50,7 +50,7 @@ export const EnderecoService = {
             return null; 
         }
 
-        return repo.save(endereco);
+        return await repo.save(endereco);
     }
 
 }

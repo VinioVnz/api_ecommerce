@@ -1,9 +1,12 @@
 import { Router } from "express";
+import { CategoriaController } from "../controllers/CategoriaController";
 
 const routes = Router()
 
-routes.get('/')
-routes.get('/:id')
-routes.post('/')
-routes.delete('/:id')
-routes.put('/:id')
+routes.get('/', CategoriaController.listar)
+routes.get('/:id', CategoriaController.buscar)
+routes.post('/', CategoriaController.criar)
+routes.delete('/:id', CategoriaController.deletar)
+routes.put('/:id',CategoriaController.atualizar)
+
+export default routes
