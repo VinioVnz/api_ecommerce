@@ -38,7 +38,12 @@ export const PedidoController = {
     },
     async deletar(req: Request, res: Response) {
         try {
+            const id = Number(req.params.id)
+            const deletado = await PedidoService.delete(id)
 
+            if(!deletado)
+                res.status(404).json(notFound)
+            res.status(200).json('Pedido deletado com sucesso')
         } catch (error) {
             console.log(error)
             res.status(500).json(serverError)
@@ -46,7 +51,13 @@ export const PedidoController = {
     },
     async atualizar(req: Request, res: Response) {
         try {
+            const data = req.body
+            const id = Number(req.params.id)
 
+            const pedido = await PedidoService.update(id,data)
+            if(!pedido)
+                res.status(404).json(notFound)
+            res.status(200).json(pedido)
         } catch (error) {
             console.log(error)
             res.status(500).json(serverError)

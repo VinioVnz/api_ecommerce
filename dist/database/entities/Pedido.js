@@ -24,7 +24,7 @@ __decorate([
     __metadata("design:type", Date)
 ], Pedido.prototype, "data_pedido", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: "tinyint" }),
+    (0, typeorm_1.Column)({ type: "tinyint", default: 0 }),
     __metadata("design:type", Number)
 ], Pedido.prototype, "status", void 0);
 __decorate([

@@ -9,7 +9,7 @@ export class Pedido{
     @Column()
     data_pedido!: Date
 
-    @Column({type: "tinyint"})
+    @Column({type: "tinyint", default: 0})
     status!: number
 
     @Column({type: 'decimal', scale:2, precision:7})
