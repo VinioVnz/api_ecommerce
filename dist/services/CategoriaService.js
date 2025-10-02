@@ -6,10 +6,10 @@ const Categoria_1 = require("../database/entities/Categoria");
 const repo = data_source_1.AppDataSource.getRepository(Categoria_1.Categoria);
 exports.CategoriaService = {
     async getAll() {
-        return repo.find({ relations: ['produtos'] });
+        return await repo.find({ relations: ['produtos'] });
     },
     async getOne(id) {
-        return repo.findOne({
+        return await repo.findOne({
             where: { id },
             relations: ['produtos']
         });

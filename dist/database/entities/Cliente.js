@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Cliente = void 0;
 const typeorm_1 = require("typeorm");
 const Endereco_1 = require("./Endereco");
+const Pedido_1 = require("./Pedido");
 let Cliente = class Cliente {
 };
 exports.Cliente = Cliente;
@@ -43,6 +44,10 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => Endereco_1.Endereco, (endereco) => endereco.cliente),
     __metadata("design:type", Array)
 ], Cliente.prototype, "enderecos", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => Pedido_1.Pedido, (pedido) => pedido.cliente),
+    __metadata("design:type", Array)
+], Cliente.prototype, "pedidos", void 0);
 exports.Cliente = Cliente = __decorate([
     (0, typeorm_1.Entity)('cliente')
 ], Cliente);

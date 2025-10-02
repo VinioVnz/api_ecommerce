@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const PedidoController_1 = require("../controllers/PedidoController");
+const routes = (0, express_1.Router)();
+routes.get('/', PedidoController_1.PedidoController.listar);
+routes.get('/:id', PedidoController_1.PedidoController.buscar);
+routes.post('/', PedidoController_1.PedidoController.criar);
+routes.delete('/:id', PedidoController_1.PedidoController.deletar);
+routes.put('/:id', PedidoController_1.PedidoController.atualizar);
+exports.default = routes;

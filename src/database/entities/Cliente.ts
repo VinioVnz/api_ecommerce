@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Endereco } from "./Endereco";
+import { Pedido } from "./Pedido";
 
 @Entity('cliente')
 export class Cliente{
@@ -23,4 +24,7 @@ export class Cliente{
 
     @OneToMany(() => Endereco, (endereco) => endereco.cliente)
     enderecos!: Endereco[];
+
+    @OneToMany(() => Pedido, (pedido) => pedido.cliente)
+    pedidos!: Pedido[]
 }

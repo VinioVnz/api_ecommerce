@@ -29,6 +29,6 @@ exports.ProdutoService = {
         });
         if (!produto)
             return null;
-        return await repo.save(produto);
+        return repo.save(produto);
     },
 };

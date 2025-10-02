@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EnderecoController = void 0;
 const EnderecoService_1 = require("../services/EnderecoService");
-const notFound = 'Cliente não encontrado';
+const notFound = 'Endereco não encontrado';
 const serverError = 'Erro de servidor';
 exports.EnderecoController = {
     async listar(req, res) {

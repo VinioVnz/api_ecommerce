@@ -45,7 +45,7 @@ exports.ProdutoController = {
             const deletado = await ProdutoService_1.ProdutoService.delete(id);
             if (!deletado)
                 res.status(404).json(notFound);
-            res.status(200).json(deletado);
+            res.status(200).json('Produto deletado com sucesso');
         }
         catch (error) {
             console.log(error);
@@ -57,10 +57,9 @@ exports.ProdutoController = {
             const data = req.body;
             const id = Number(req.params.id);
             const produto = await ProdutoService_1.ProdutoService.update(id, data);
-            if (!produto) {
+            if (!produto)
                 res.status(404).json(notFound);
-                res.status(200).json(produto);
-            }
+            res.status(200).json(produto);
         }
         catch (error) {
             console.log(error);

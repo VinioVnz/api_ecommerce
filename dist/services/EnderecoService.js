@@ -8,12 +8,12 @@ const repo = data_source_1.AppDataSource.getRepository(Endereco_1.Endereco);
 const clienteRepo = data_source_1.AppDataSource.getRepository(Cliente_1.Cliente);
 exports.EnderecoService = {
     async getAll() {
-        return repo.find({
+        return await repo.find({
             relations: ["cliente"]
         });
     },
     async getOne(id) {
-        return repo.findOne({ where: { id } });
+        return await repo.findOne({ where: { id } });
     },
     async create(data) {
         if (!data.cliente_id) {

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CategoriaController = void 0;
 const CategoriaService_1 = require("../services/CategoriaService");
 const serverError = 'Erro de servidor';
-const notFound = 'Cliente não encontrado';
+const notFound = 'Categoria não encontrada';
 exports.CategoriaController = {
     async listar(req, res) {
         try {
