@@ -9,38 +9,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Pedido = void 0;
+exports.ItemPedido = void 0;
 const typeorm_1 = require("typeorm");
-const Cliente_1 = require("./Cliente");
-const ItemPedido_1 = require("./ItemPedido");
-let Pedido = class Pedido {
+const Pedido_1 = require("./Pedido");
+const Produto_1 = require("./Produto");
+let ItemPedido = class ItemPedido {
 };
-exports.Pedido = Pedido;
+exports.ItemPedido = ItemPedido;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], Pedido.prototype, "id", void 0);
+], ItemPedido.prototype, "id_item", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
-    __metadata("design:type", Date)
-], Pedido.prototype, "data_pedido", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ type: "tinyint", default: 0 }),
     __metadata("design:type", Number)
-], Pedido.prototype, "status", void 0);
+], ItemPedido.prototype, "quantidade", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'decimal', scale: 2, precision: 7 }),
+    (0, typeorm_1.Column)(),
     __metadata("design:type", Number)
-], Pedido.prototype, "total", void 0);
+], ItemPedido.prototype, "preco_uni", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => Cliente_1.Cliente, (cliente) => cliente.pedidos),
-    (0, typeorm_1.JoinColumn)({ name: 'id_cliente' }),
-    __metadata("design:type", Cliente_1.Cliente)
-], Pedido.prototype, "cliente", void 0);
+    (0, typeorm_1.ManyToOne)(() => Pedido_1.Pedido, pedido => pedido.itens, { onDelete: "CASCADE" }),
+    (0, typeorm_1.JoinColumn)({ name: "id_pedido" }),
+    __metadata("design:type", Pedido_1.Pedido)
+], ItemPedido.prototype, "pedido", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => ItemPedido_1.ItemPedido, item => item.pedido, { cascade: true }),
-    __metadata("design:type", Array)
-], Pedido.prototype, "itens", void 0);
-exports.Pedido = Pedido = __decorate([
-    (0, typeorm_1.Entity)('pedido')
-], Pedido);
+    (0, typeorm_1.ManyToOne)(() => Produto_1.Produto, produto => produto.itens, { eager: true }),
+    (0, typeorm_1.JoinColumn)({ name: "id_produto" }),
+    __metadata("design:type", Produto_1.Produto)
+], ItemPedido.prototype, "produto", void 0);
+exports.ItemPedido = ItemPedido = __decorate([
+    (0, typeorm_1.Entity)("item_pedido")
+], ItemPedido);

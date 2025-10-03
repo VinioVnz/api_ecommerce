@@ -7,6 +7,7 @@ import { Endereco } from "./entities/Endereco";
 import { Produto } from "./entities/Produto";
 import { Categoria } from "./entities/Categoria";
 import { Pedido } from "./entities/Pedido";
+import { ItemPedido } from "./entities/ItemPedido";
 dotenv.config();
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -15,7 +16,7 @@ export const AppDataSource = new DataSource({
     username: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',
     database: process.env.DB_NAME || 'ecommerce_api',
-    entities:[Cliente,Endereco,Produto,Categoria,Pedido],
+    entities:[Cliente,Endereco,Produto,Categoria,Pedido,ItemPedido],
     logging: true,
     migrations: ['dist/database/migrations/*.js'],
     synchronize: false

@@ -32,7 +32,7 @@ export const PedidoController = {
             const pedido = await PedidoService.create(data)
             res.status(200).json(pedido)
         } catch (error) {
-            console.log(error)
+            console.log('Error:' ,error)
             res.status(500).json(serverError)
         }
     },

@@ -1,27 +1,31 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Categoria } from "./Categoria";
+import { ItemPedido } from "./ItemPedido";
 
 @Entity('produto')
-export class Produto{
+export class Produto {
     @PrimaryGeneratedColumn()
     id!: number;
 
-    @Column({type: "varchar"})
+    @Column({ type: "varchar" })
     nome!: string;
 
-    @Column({type: "decimal", precision: 7, scale:2 })
+    @Column({ type: "decimal", precision: 7, scale: 2 })
     preco!: number;
 
-    @Column({type: "varchar"})
+    @Column({ type: "varchar" })
     descricao!: string;
 
-    @Column({type: 'int'})
+    @Column({ type: 'int' })
     estoque!: number;
 
-    @Column({type: "varchar"})
+    @Column({ type: "varchar" })
     url_foto!: string;
 
     @ManyToOne(() => Categoria, (categoria) => categoria.produtos)
-    @JoinColumn({name: "id_categoria"})
+    @JoinColumn({ name: "id_categoria" })
     categoria: Categoria
+
+    @OneToMany(() => ItemPedido, item => item.produto)
+    itens!: ItemPedido[];
 }

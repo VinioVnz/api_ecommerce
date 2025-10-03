@@ -41,6 +41,11 @@ exports.PedidoController = {
     },
     async deletar(req, res) {
         try {
+            const id = Number(req.params.id);
+            const deletado = await PedidoService_1.PedidoService.delete(id);
+            if (!deletado)
+                res.status(404).json(notFound);
+            res.status(200).json('Pedido deletado com sucesso');
         }
         catch (error) {
             console.log(error);
@@ -49,6 +54,12 @@ exports.PedidoController = {
     },
     async atualizar(req, res) {
         try {
+            const data = req.body;
+            const id = Number(req.params.id);
+            const pedido = await PedidoService_1.PedidoService.update(id, data);
+            if (!pedido)
+                res.status(404).json(notFound);
+            res.status(200).json(pedido);
         }
         catch (error) {
             console.log(error);
